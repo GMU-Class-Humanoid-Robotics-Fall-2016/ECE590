@@ -1,0 +1,40 @@
+The assignment is to create the kinematics for a 3 degree of freedom based arm.  
+There are supposed to be 3 inputs into the system; however, more is needed to do this properly.
+Inputs:
+	-L1: The length of the first part of the arm
+	-L2: The length of the second part of the arm
+	-L3: The length of the third part of the arm
+	-A1: The angle (radians) of the first joint
+	-A2: The angle (radians) of the second joint
+	-A3: The angle (radians of the third joint.
+	-M: The method to use
+	    -1: Forward kinematics based on sines and cosines of the angles multiplied by lengths
+	    -2: Denavit-Hartenber Matrix multiplication
+
+Output (For Method 1):
+       
+       python degree_of_freedom.py -L1 1 -L2 1 -L3 1 -A1 .707 -A2 .707 -A3 .707 -M 1
+       Method =  1
+       [ 0.39360775  2.48970642  2.121     ]
+
+       This shows that the x position is 0.39360775 and the y position is 2.48970642
+       The angle (phi) is 2.121 radians
+
+
+Output (For Method 2):
+
+       python degree_of_freedom.py -L1 1 -L2 1 -L3 1 -A1 .707 -A2 .707 -A3 .707 -M 2
+       Method = 2
+        [[-0.52286085 -0.85241805  0.          0.39360775]
+        [ 0.85241805 -0.52286085  0.          2.48970642]
+	[ 0.          0.          1.          0.        ]
+	[ 0.          0.          0.          1.        ]]
+	-1.02059265359
+	-1.02059265359
+	
+	This shows that the x position is 0.39360775 and the y position is 2.48970642
+	The angle (phi)	is 
+
+
+	
+
