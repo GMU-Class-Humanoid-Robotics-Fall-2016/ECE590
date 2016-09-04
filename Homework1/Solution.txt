@@ -29,11 +29,11 @@ Output (For Method 2):
         [ 0.85241805 -0.52286085  0.          2.48970642]
 	[ 0.          0.          1.          0.        ]
 	[ 0.          0.          0.          1.        ]]
-	-1.02059265359
+	2.121
 	-1.02059265359
 	
 	This shows that the x position is 0.39360775 and the y position is 2.48970642
-	The angle (phi)	is 
+	The angle (phi) from the x axis is 2.121.  The arctangent, as determined by the rotation matrix, is: -1.02059265359.
 
 
 	

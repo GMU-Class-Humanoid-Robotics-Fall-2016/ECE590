@@ -53,13 +53,13 @@ class threeDOF(object):
             out2 = dhMatrix(0.,Angle2,Length2,0.)
             out3 = dhMatrix(0.,Angle3,Length3,0.)
 
-
-            self.out = numpy.dot(numpy.dot(out1.T,out2.T),out3.T)
+            out2_1 = numpy.dot(out1.T,out2.T)
+            self.out = numpy.dot(out2_1,out3.T)
 
             self.arcTanPhi = numpy.arctan(self.out[1,0] / self.out[0,0])
 
-            signX = numpy.sign(self.out[0,3])
-            signY = numpy.sign(self.out[1,3])
+            signX = numpy.sign(self.out[0,3] - out2_1[0,3])
+            signY = numpy.sign(self.out[1,3] - out2_1[1,3])
 
             if signX == 1 and signY == 1:
                 self.circularPhi = self.arcTanPhi
@@ -77,11 +77,8 @@ class threeDOF(object):
 
     def _returnThis(self):
 
-        # print "x = {} , y = {} , phi = {}".format(self.threeDOF[0],self.threeDOF[1],self.threeDOF[2])
         return self
 
-
-        # plt.figure()
 
 
 
@@ -105,8 +102,8 @@ if __name__ == "__main__":
     print 'Method = ', args.Method
 
     if args.Method == 2:
-        print out.out
-        print out.circularPhi
-        print out.arcTanPhi
+        print "matrix output = \n",out.out
+        print "phi (from x axis is) ",out.circularPhi
+        print "phi (from last point) is ",out.arcTanPhi
     else:
-        print out.threeDOF
+        print "x = {} , y = {} , phi = {}".format(out.threeDOF[0] , out.threeDOF[1] , out.threeDOF[2])
