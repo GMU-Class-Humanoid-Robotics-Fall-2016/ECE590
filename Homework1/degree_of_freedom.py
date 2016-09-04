@@ -11,6 +11,7 @@ Inputs:
     -A1 <or> --Angle1: the angle (radian) of the first joint
     -A2 <or> --Angle2: the angle (radian) of the second joint
     -A3 <or> --Angle3: the angle (radian) of the third joint
+    -M  <or> --Method: Method to run, 1: forward kinematics, 2: Denavit-Hartenberg Matrix
 
 Outputs:
 
@@ -20,7 +21,7 @@ Outputs:
 
 Usage:
 
-    <user>$ python degree_of_freedom.py -L1 1 -L2 1 -L3 1 -A1 .2 -A2 .2 -A3 .2
+    <user>$ python degree_of_freedom.py -L1 1 -L2 1 -L3 1 -A1 .2 -A2 .2 -A3 .2 -M 1
             x = 2.72646318675 , y = 1.1527301465 , phi = 0.6
 
 TODO: create plot function for this
