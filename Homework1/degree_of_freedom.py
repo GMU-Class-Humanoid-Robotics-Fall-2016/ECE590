@@ -11,7 +11,6 @@ Inputs:
     -A1 <or> --Angle1: the angle (radian) of the first joint
     -A2 <or> --Angle2: the angle (radian) of the second joint
     -A3 <or> --Angle3: the angle (radian) of the third joint
-    -M  <or> --Method: Method to run, 1: forward kinematics, 2: Denavit-Hartenberg Matrix
 
 Outputs:
 
@@ -21,10 +20,9 @@ Outputs:
 
 Usage:
 
-    <user>$ python degree_of_freedom.py -L1 1 -L2 1 -L3 1 -A1 .2 -A2 .2 -A3 .2 -M 1
+    <user>$ python degree_of_freedom.py -L1 1 -L2 1 -L3 1 -A1 .2 -A2 .2 -A3 .2
             x = 2.72646318675 , y = 1.1527301465 , phi = 0.6
 
-TODO: create plot function for this
 
 
 """
@@ -34,7 +32,7 @@ import numpy
 import argparse
 import matplotlib.pyplot as plt
 from denavit_hartenberg_matrix import dhMatrix
-# from rotation_matrix import rotationMatrix
+
 
 class threeDOF(object):
 
@@ -48,31 +46,47 @@ class threeDOF(object):
 
             self.threeDOF = numpy.array([x , y , phi])
 
-        elif Method == 2:
 
-            out1 = dhMatrix(0.,Angle1,Length1,0.)
-            out2 = dhMatrix(0.,Angle2,Length2,0.)
-            out3 = dhMatrix(0.,Angle3,Length3,0.)
 
-            out2_1 = numpy.dot(out1.T,out2.T)
-            self.out = numpy.dot(out2_1,out3.T)
+        out1 = dhMatrix(0.,Angle1,Length1,0.)
+        out2 = dhMatrix(0.,Angle2,Length2,0.)
+        out3 = dhMatrix(0.,Angle3,Length3,0.)
 
-            self.arcTanPhi = numpy.arctan(self.out[1,0] / self.out[0,0])
+        out2_1 = numpy.dot(out1.T,out2.T)
+        self.out = numpy.dot(out2_1,out3.T)
 
-            signX = numpy.sign(self.out[0,3] - out2_1[0,3])
-            signY = numpy.sign(self.out[1,3] - out2_1[1,3])
+        self.arcTanPhi = numpy.arctan(self.out[1,0] / self.out[0,0])
 
-            if signX == 1 and signY == 1:
-                self.circularPhi = self.arcTanPhi
-            if signX == 1 and signY == -1:
-                self.circularPhi = (2. * numpy.pi) + self.arcTanPhi
-            if signX == -1 and signY == -1:
-                self.circularPhi = numpy.pi + self.arcTanPhi
-            if signX == -1 and signY == 1:
-                self.circularPhi = numpy.pi + self.arcTanPhi
+        signX = numpy.sign(self.out[0,3] - out2_1[0,3])
+        signY = numpy.sign(self.out[1,3] - out2_1[1,3])
 
-        else:
-            print "error, incorrect Method"
+        if signX == 1 and signY == 1:
+            self.circularPhi = self.arcTanPhi
+        if signX == 1 and signY == -1:
+            self.circularPhi = (2. * numpy.pi) + self.arcTanPhi
+        if signX == -1 and signY == -1:
+            self.circularPhi = numpy.pi + self.arcTanPhi
+        if signX == -1 and signY == 1:
+            self.circularPhi = numpy.pi + self.arcTanPhi
+
+        plt.figure()
+        plt.plot([0.,out1.T[0,3]] , [0,out1.T[1,3]] , 'r')
+        plt.plot([out1.T[0,3] , out2_1[0,3]] , [out1.T[1,3],out2_1[1,3]] , 'g')
+        plt.plot([out2_1[0,3] , self.out[0,3]] , [out2_1[1,3],self.out[1,3]] , 'b')
+
+        plt.axis('equal')
+
+
+        title_font = {'fontname':'Arial', 'size':'40', 'color':'black', 'weight':'bold',
+              'verticalalignment':'bottom'} # Bottom vertical alignment for more space
+        axis_font = {'fontname':'Arial', 'size':'24', 'weight':'bold'}
+
+        plt.title(r"Three Degree Of Freedom Arm",**title_font)
+
+        plt.xlabel("X Axis (World Frame) \n End Effector Is At Location [ %2.3f , %2.3f , %2.3f ] And %2.4f Radians"%(self.out[0,3],self.out[1,3],self.out[2,3],self.circularPhi),**axis_font)
+        plt.ylabel("Y Axis (World Frame)",**axis_font)
+        plt.show()
+
 
         self._returnThis()
 
@@ -93,18 +107,16 @@ if __name__ == "__main__":
     parser.add_argument('-A2','--Angle2',type=float,help="The angle of the second arm in radians")
     parser.add_argument('-A3','--Angle3',type=float,help="The angle of the third arm in radians")
     parser.add_argument('-M','--Method',type=int,help="Methodology To Use, 1: Direct Kinematics , 2: Denavit-Hartenberg Matrix",default=1)
-    #
-    #
-    # print 'done', Length1
+
     args = parser.parse_args()
 
     out = threeDOF(args.Length1 , args.Length2 , args.Length3 , args.Angle1 , args.Angle2 , args.Angle3 , args.Method)
 
-    print 'Method = ', args.Method
+    print "FROM DIRECT KINEMATICS, IT IS FOUND THAT:"
+    print "     X = {} , Y = {} , Phi (Radians) = {}".format(out.threeDOF[0] , out.threeDOF[1] , out.threeDOF[2])
+    print "\n"
+    print "FROM DENAVIT-HARTENBERG MATRIX, IT IS FOUND THAT:"
+    print "     Rotation Matrix = {}".format(out.out[0:3,0:3])
+    print "     Location [X,Y,Z] = [ {} , {} , {} ]".format(out.out[0,3] , out.out[1,3] , out.out[2,3])
+    print "     Phi (Radians) = {}".format(out.circularPhi)
 
-    if args.Method == 2:
-        print "matrix output = \n",out.out
-        print "phi (from x axis is) ",out.circularPhi
-        print "phi (robot frame) is ",out.arcTanPhi
-    else:
-        print "x = {} , y = {} , phi = {}".format(out.threeDOF[0] , out.threeDOF[1] , out.threeDOF[2])
