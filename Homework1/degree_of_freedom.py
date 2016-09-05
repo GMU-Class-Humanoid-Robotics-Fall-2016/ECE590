@@ -105,6 +105,6 @@ if __name__ == "__main__":
     if args.Method == 2:
         print "matrix output = \n",out.out
         print "phi (from x axis is) ",out.circularPhi
-        print "phi (from last point) is ",out.arcTanPhi
+        print "phi (robot frame) is ",out.arcTanPhi
     else:
         print "x = {} , y = {} , phi = {}".format(out.threeDOF[0] , out.threeDOF[1] , out.threeDOF[2])
