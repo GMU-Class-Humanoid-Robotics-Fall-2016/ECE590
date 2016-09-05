@@ -26,4 +26,11 @@ FROM DENAVIT-HARTENBERG MATRIX, IT IS FOUND THAT:
      Phi (Radians) = 2.121
 
 	
+EQUATION FOR FORWARD KINEMATICS:
+
+Location:
+        x = L1*cos(A1) + L2*cos(A1+A2) + L3*cos(A1+A2+A3)
+        y = L1*sin(A1) + L2*sin(A1+A2) + L3*sin(A1+A2+A3)
+Angle:
+        phi = A1 + A2 + A3
 
