@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.24pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Issues With Torque Control}{4}{0}{2}
+\beamer@sectionintoc {3}{Previous Studies}{5}{0}{3}
+\beamer@sectionintoc {4}{Current Studies (2011-2016)}{6}{0}{4}
+\beamer@sectionintoc {5}{Conclusion}{7}{0}{5}
