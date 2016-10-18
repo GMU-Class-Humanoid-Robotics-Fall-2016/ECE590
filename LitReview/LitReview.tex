@@ -286,11 +286,13 @@ The idea of Torque Control will be discussed in the following ways:
     \end{column}
     \begin{column}{0.5\textwidth}
     		\centering
-    		ICUB\footnotemark[1]
+    		ICUB\footnote[frame]{\begin{tiny}
+    		https://twitter.com/icub
+    		\end{tiny}}
         \includegraphics[scale=.15]{./images/creepy_cub.jpg}
     \end{column}
 	
-	\footnotetext[1]{https://twitter.com/icub}
+%	\footnotetext[1]{https://twitter.com/icub}
 \end{columns}  
 
 \end{frame}
@@ -307,13 +309,14 @@ The idea of Torque Control will be discussed in the following ways:
 
 
 \section[Problems]{Problems To Deal With}
-\begin{frame}
+\begin{frame}\begin{small}
 General Issues:
 \begin{itemize}
 	\item Must manipulate end effector (or end joint) positions to execute a desired command \cite{piltan}
 	\item Must minimize or reject disturbances \cite{piltan,6954103}
 	\item Conventional controllers need exact dynamical models \cite{piltan}
 	\item Extremely nonlinear \cite{SONG2005208,1035149,piltan}
+	\item Autonomous platforms (especially walking) must have torque controlled joints \cite{6224628}
 \end{itemize}
 PID Controllers\cite{SONG2005208}
 \begin{itemize}
@@ -324,11 +327,11 @@ Torque Controllers:
 \begin{itemize}
 	\item Excellent control comes at the cost of flux \cite{6954103}
 	\item Powerful nonlinear controller that is widely used in robotic manipulators
-\end{itemize}
+\end{itemize}\end{small}
 \end{frame}
 
 \section[Techniques]{2011 To Present}
-\begin{frame}{Techniques}{Super-Twisting Sliding Mode\cite{6954103}}
+\begin{frame}{Techniques}{Super-Twisting Sliding Mode\cite{6954103}}\begin{small}
 %\begin{tabular}{lc}
 \begin{columns}
     \begin{column}{0.47\textwidth}
@@ -344,30 +347,30 @@ Torque Controllers:
     \begin{column}{0.5\textwidth}
         \includegraphics[scale=.25]{./images/direct_torque_flux_controller.png}
     \end{column}
-\end{columns}
+\end{columns}\end{small}
 \end{frame}
 
-\begin{frame}{Techniques}{Super-Twisting Sliding Mode\cite{6954103}}
+\begin{frame}{Techniques}{Super-Twisting Sliding Mode\cite{6954103}}\begin{footnotesize}
 %\begin{tabular}{lc}
 \begin{columns}
     \begin{column}{0.47\textwidth}
         \begin{itemize}
         		\item The nonlinearity of the device can be controlled by changing the exponent $r$ such that $0 \leq r \leq $
 			\item Step 1: with $r=0$, select $K_P$ for the desired response time
-			\begin{itemize}
+			\begin{itemize}\begin{tiny}
 				\item the flux rising time has a strong impact on startup peak current
-			\end{itemize}
+			\end{tiny}\end{itemize}
 			\item Step 2: with $r=1$, select $K_I$ for the desired overshoot and settling time.  
-				\begin{itemize}
+				\begin{itemize}\begin{tiny}
 					\item Try to not have a visible overshoot and smooth settling
-				\end{itemize}
+				\end{tiny}\end{itemize}
 			\item increase $r$ until the torque and flux ripples vanish
         \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
         \includegraphics[scale=.25]{./images/stsm_dtc_controller.png}
     \end{column}
-\end{columns}
+\end{columns}\end{footnotesize}
 \end{frame}
 
 \begin{frame}{Techniques}{PD Plus Gravity\cite{piltan}}
@@ -417,11 +420,19 @@ Torque Controllers:
 \end{frame}
 
 
-\begin{frame}{Techniques}{PD Plus Gravity\cite{piltan}}
+\begin{frame}{Techniques}{Dynamic Torque Control\cite{6224628}}
 %\begin{tabular}{lc}
 \begin{columns}
     \begin{column}{0.47\textwidth}
-asdf
+		\begin{itemize}
+			\item Robots are generally modelled as rigid body systems
+			\item Use torques as inputs
+			\item High fidelity is key
+			\item Outer position loop and inner torque loop
+			\item Torque comes from inverse dynamics to change the set-point
+			\item Both loops run a PID
+			\item Feedback entirely based on the error
+		\end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
         \includegraphics[scale=.2]{./images/quad_robot.png}
@@ -431,11 +442,30 @@ asdf
 
 
 
-\begin{frame}{Techniques}{PD Plus Gravity\cite{piltan}}
+\begin{frame}{Techniques}{Dynamic Torque Control\cite{6224628}}
 %\begin{tabular}{lc}
 \begin{columns}
-    \begin{column}{0.47\textwidth}
-asdf
+    \begin{column}{0.47\textwidth}\begin{scriptsize}
+		\begin{itemize}
+			\item Using force and flow balance and neglecting hydraulic friction the force $F$ is:
+		\end{itemize}
+		\begin{tiny}
+		\begin{equation*}
+		\dot{F}= f(P,x_p) + g(x_p,\dot{x}_p)u
+		\end{equation*}\end{tiny}
+		\begin{itemize}
+			\item $f(P,x_p)$ is a function of position and pressure
+			\item $g(x_p,\dot{x}_p)$ depends of velocity and natural feedback
+		\end{itemize}
+		\begin{tiny}
+		\begin{align*}
+		g(P,x_p) &= K_vA_p\beta \left[ \frac{\sqrt{P_S-P_A}}{V_A(x_p)} + \frac{\alpha\sqrt{P_B-P_T}}{V_B(x_p}\right] \\
+		f(x_p,\dot{x} &= -A^2_p\beta\left[\frac{1}{V_A(x_p)} + \frac{\alpha^2}{V_B(x_p)}\right]\dot{x}
+		\end{align*}\end{tiny}
+		\begin{itemize}
+			\item $\alpha$ is piston area ration; $\beta$ is oil stiffness; $V_\cdot(x_p)$ are chamber volumes 
+		\end{itemize}    
+    \end{scriptsize}
     \end{column}
     \begin{column}{0.5\textwidth}
         \includegraphics[scale=.2]{./images/dynamics.png}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.7.27)  17 OCT 2016 23:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.7.27)  18 OCT 2016 13:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1642,70 +1642,79 @@ File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 ] (./LitReview.toc) [2
 
 ]
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 298.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <5> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 298.
+
 <./images/creepy_cub.jpg, id=112, 602.25pt x 806.01125pt>
 File: ./images/creepy_cub.jpg Graphic file (type jpg)
 
 <use ./images/creepy_cub.jpg>
-Package pdftex.def Info: ./images/creepy_cub.jpg used on input line 296.
+Package pdftex.def Info: ./images/creepy_cub.jpg used on input line 298.
 (pdftex.def)             Requested size: 90.33359pt x 120.89647pt.
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 296.
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <5> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 296.
  [3
 
  <./images/creepy_cub.jpg>] [4
 
 ]
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 328.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 331.
 
 
-LaTeX Warning: Citation `piltan' on page 5 undefined on input line 328.
+LaTeX Warning: Citation `piltan' on page 5 undefined on input line 331.
 
 
-LaTeX Warning: Citation `piltan' on page 5 undefined on input line 328.
+LaTeX Warning: Citation `piltan' on page 5 undefined on input line 331.
 
 
-LaTeX Warning: Citation `6954103' on page 5 undefined on input line 328.
+LaTeX Warning: Citation `6954103' on page 5 undefined on input line 331.
 
 
-LaTeX Warning: Citation `piltan' on page 5 undefined on input line 328.
+LaTeX Warning: Citation `piltan' on page 5 undefined on input line 331.
 
 
-LaTeX Warning: Citation `SONG2005208' on page 5 undefined on input line 328.
+LaTeX Warning: Citation `SONG2005208' on page 5 undefined on input line 331.
 
 
-LaTeX Warning: Citation `1035149' on page 5 undefined on input line 328.
+LaTeX Warning: Citation `1035149' on page 5 undefined on input line 331.
 
 
-LaTeX Warning: Citation `piltan' on page 5 undefined on input line 328.
+LaTeX Warning: Citation `piltan' on page 5 undefined on input line 331.
 
 
-LaTeX Warning: Citation `SONG2005208' on page 5 undefined on input line 328.
+LaTeX Warning: Citation `6224628' on page 5 undefined on input line 331.
 
 
-LaTeX Warning: Citation `6954103' on page 5 undefined on input line 328.
+LaTeX Warning: Citation `SONG2005208' on page 5 undefined on input line 331.
+
+
+LaTeX Warning: Citation `6954103' on page 5 undefined on input line 331.
+
+
+Overfull \vbox (5.9583pt too high) detected at line 331
+ []
 
 [5
 
 ]
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 351.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 351.
+
 <./images/direct_torque_flux_controller.png, id=206, 541.02126pt x 385.44pt>
 File: ./images/direct_torque_flux_controller.png Graphic file (type png)
 
 <use ./images/direct_torque_flux_controller.png>
 Package pdftex.def Info: ./images/direct_torque_flux_controller.png used on inp
-ut line 348.
+ut line 351.
 (pdftex.def)             Requested size: 135.25497pt x 96.35976pt.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <9> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 348.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 351.
 
 
-LaTeX Warning: Citation `6954103' on page 6 undefined on input line 348.
-
-
-Overfull \vbox (4.0273pt too high) detected at line 348
- []
+LaTeX Warning: Citation `6954103' on page 6 undefined on input line 351.
 
 [6
 
@@ -1715,20 +1724,16 @@ File: ./images/stsm_dtc_controller.png Graphic file (type png)
 
 <use ./images/stsm_dtc_controller.png>
 Package pdftex.def Info: ./images/stsm_dtc_controller.png used on input line 37
-1.
+4.
 (pdftex.def)             Requested size: 136.76059pt x 101.12756pt.
 
 
-LaTeX Warning: Citation `6954103' on page 7 undefined on input line 371.
-
-
-Overfull \vbox (72.51675pt too high) detected at line 371
- []
+LaTeX Warning: Citation `6954103' on page 7 undefined on input line 374.
 
 [7
 
  <./images/stsm_dtc_controller.png>]
-Overfull \hbox (21.45125pt too wide) in paragraph at lines 396--396
+Overfull \hbox (21.45125pt too wide) in paragraph at lines 399--399
 []  
  []
 
@@ -1736,21 +1741,21 @@ Overfull \hbox (21.45125pt too wide) in paragraph at lines 396--396
 File: ./images/pd_ctc_application.png Graphic file (type png)
 
 <use ./images/pd_ctc_application.png>
-Package pdftex.def Info: ./images/pd_ctc_application.png used on input line 396
+Package pdftex.def Info: ./images/pd_ctc_application.png used on input line 399
 .
 (pdftex.def)             Requested size: 153.16953pt x 97.36201pt.
 
-Overfull \hbox (7.79822pt too wide) in paragraph at lines 396--396
+Overfull \hbox (7.79822pt too wide) in paragraph at lines 399--399
 [][]  
  []
 
 
-LaTeX Warning: Citation `piltan' on page 8 undefined on input line 396.
+LaTeX Warning: Citation `piltan' on page 8 undefined on input line 399.
 
 [8
 
  <./images/pd_ctc_application.png>]
-Overfull \hbox (30.62967pt too wide) detected at line 417
+Overfull \hbox (30.62967pt too wide) detected at line 420
 \OML/cmm/m/it/10.95 ^^\ \OT1/cmss/m/n/10.95 = \T1/phv/m/sl/10.95 M\OT1/cmss/m/n
 /10.95 (\T1/phv/m/sl/10.95 q\OT1/cmss/m/n/10.95 )([] + \T1/phv/m/sl/10.95 K[][]
  \OT1/cmss/m/n/10.95 + \T1/phv/m/sl/10.95 K[]e\OT1/cmss/m/n/10.95 ) + \T1/phv/m
@@ -1759,7 +1764,7 @@ Overfull \hbox (30.62967pt too wide) detected at line 417
  []
 
 
-Overfull \hbox (19.14386pt too wide) detected at line 417
+Overfull \hbox (19.14386pt too wide) detected at line 420
 \OML/cmm/m/it/10.95 ^^\ \OT1/cmss/m/n/10.95 = \T1/phv/m/sl/10.95 M\OT1/cmss/m/n
 /10.95 (\T1/phv/m/sl/10.95 q\OT1/cmss/m/n/10.95 )([] + \T1/phv/m/sl/10.95 K[][]
  \OT1/cmss/m/n/10.95 + \T1/phv/m/sl/10.95 K[]e\OT1/cmss/m/n/10.95 ) + \T1/phv/m
@@ -1768,49 +1773,60 @@ Overfull \hbox (19.14386pt too wide) detected at line 417
 
 File: ./images/pd_ctc_application.png Graphic file (type png)
 <use ./images/pd_ctc_application.png>
-Package pdftex.def Info: ./images/pd_ctc_application.png used on input line 417
+Package pdftex.def Info: ./images/pd_ctc_application.png used on input line 420
 .
 (pdftex.def)             Requested size: 153.16953pt x 97.36201pt.
 
-Overfull \hbox (7.79822pt too wide) in paragraph at lines 417--417
+Overfull \hbox (7.79822pt too wide) in paragraph at lines 420--420
 [][]  
  []
 
 
-LaTeX Warning: Citation `piltan' on page 9 undefined on input line 417.
+LaTeX Warning: Citation `piltan' on page 9 undefined on input line 420.
 
 [9
 
-] <./images/quad_robot.png, id=343, 698.61pt x 408.52625pt>
+] <./images/quad_robot.png, id=344, 698.61pt x 408.52625pt>
 File: ./images/quad_robot.png Graphic file (type png)
 
 <use ./images/quad_robot.png>
-Package pdftex.def Info: ./images/quad_robot.png used on input line 430.
+Package pdftex.def Info: ./images/quad_robot.png used on input line 441.
 (pdftex.def)             Requested size: 139.71951pt x 81.7038pt.
 
 
-LaTeX Warning: Citation `piltan' on page 10 undefined on input line 430.
+LaTeX Warning: Citation `6224628' on page 10 undefined on input line 441.
 
 [10
 
  <./images/quad_robot.png>]
-<./images/dynamics.png, id=375, 753.81625pt x 327.2225pt>
+Overfull \hbox (6.4816pt too wide) in paragraph at lines 474--474
+[]  
+ []
+
+<./images/dynamics.png, id=376, 753.81625pt x 327.2225pt>
 File: ./images/dynamics.png Graphic file (type png)
 
 <use ./images/dynamics.png>
-Package pdftex.def Info: ./images/dynamics.png used on input line 444.
+Package pdftex.def Info: ./images/dynamics.png used on input line 474.
 (pdftex.def)             Requested size: 150.76057pt x 65.44333pt.
 
-Overfull \hbox (5.38927pt too wide) in paragraph at lines 444--444
+Overfull \hbox (5.38927pt too wide) in paragraph at lines 474--474
 [][]  
  []
 
 
-LaTeX Warning: Citation `piltan' on page 11 undefined on input line 444.
+LaTeX Warning: Citation `6224628' on page 11 undefined on input line 474.
 
 [11
 
- <./images/dynamics.png>] [12
+ <./images/dynamics.png>]
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 487.
+
+
+LaTeX Warning: Citation `7525846' on page 12 undefined on input line 487.
+
+[12
 
 ] (./LitReview.bbl) [13
 
@@ -1829,39 +1845,44 @@ LaTeX Warning: Citation `piltan' on page 11 undefined on input line 444.
 Package caption Warning: Unused \captionsetup[mycapequ] on input line 50.
 See the caption package documentation for explanation.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 464.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 464.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 495.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 495.
 (./LitReview.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 464.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 464.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 495.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 495.
 Package rerunfilecheck Info: File `LitReview.out' has not changed.
 (rerunfilecheck)             Checksum: 2DC7F6CB8E5DCD0EF5379BD1C4F4ED00;259.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 464.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 495.
  ) 
 Here is how much of TeX's memory you used:
- 30418 strings out of 493304
- 602724 string characters out of 6139871
- 649348 words of memory out of 5000000
- 33124 multiletter control sequences out of 15000+600000
- 57013 words of font info for 96 fonts, out of 8000000 for 9000
+ 30457 strings out of 493304
+ 603159 string characters out of 6139871
+ 650348 words of memory out of 5000000
+ 33154 multiletter control sequences out of 15000+600000
+ 74357 words of font info for 122 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 49i,17n,60p,10421b,834s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,17n,60p,10421b,921s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helveti
-c/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pf
-b>
-Output written on LitReview.pdf (13 pages, 517124 bytes).
+f-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on LitReview.pdf (13 pages, 565026 bytes).
 PDF statistics:
- 502 PDF objects out of 1000 (max. 8388607)
- 459 compressed objects within 5 object streams
+ 526 PDF objects out of 1000 (max. 8388607)
+ 477 compressed objects within 5 object streams
  32 named destinations out of 1000 (max. 500000)
  135 words of extra memory for PDF output out of 10000 (max. 10000000)
 
