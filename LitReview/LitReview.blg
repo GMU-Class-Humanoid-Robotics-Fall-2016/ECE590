@@ -2,14 +2,14 @@ This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: LitReview.aux
 I couldn't open style file IEEETran.bst
----line 57 of file LitReview.aux
+---line 75 of file LitReview.aux
  : \bibstyle{IEEETran
  :                   }
 I'm skipping whatever remains of this command
 I found no style file---while reading file LitReview.aux
-You've used 1 entry,
+You've used 4 entries,
             0 wiz_defined-function locations,
-            87 strings with 538 characters,
+            90 strings with 558 characters,
 and the built_in function-call counts, 0 in all, are:
 = -- 0
 > -- 0

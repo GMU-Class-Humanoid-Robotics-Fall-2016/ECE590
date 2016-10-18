@@ -1,6 +1,9 @@
 % $Header$
 
 \documentclass{beamer}
+
+\setbeamertemplate{bibliography item}[text]
+
 \newcommand\leftidx[3]{%
   {\vphantom{#2}}#1#2#3%
 }
@@ -148,7 +151,7 @@
     \vskip-\belowcaptionskip
 }
 
-\usepackage{bibentry}
+%\usepackage{bibentry}
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -270,66 +273,192 @@
 
 
 \begin{frame}{Introduction}{Introduction}
+\begin{columns}
+    \begin{column}{0.47\textwidth}
 The idea of Torque Control will be discussed in the following ways:
 \begin{itemize}
-	\item Previous Studies
-	\item Constraints
+	\item Definitions
+	\item Problems
 	\item Techniques  
-	\item Current Uses
-	\item Future Possibilities
-\end{itemize}  
+	\item Interesting Concept
+	\item Takeaway Points
+\end{itemize}	
+    \end{column}
+    \begin{column}{0.5\textwidth}
+    		\centering
+    		ICUB\footnotemark[1]
+        \includegraphics[scale=.15]{./images/creepy_cub.jpg}
+    \end{column}
+	
+	\footnotetext[1]{https://twitter.com/icub}
+\end{columns}  
 
 \end{frame}
 
-\section[Issues]{Issues With Torque Control}
+\section[Definitions]{Important Definitions}
+\begin{frame}{Definitions}{Let's All Speak The Same Language}
+\begin{itemize}
+	\item Asymptotic Stability
+	\item Lyapunov Stability
+	\item Fuzzy Logic
+\end{itemize}
+\end{frame}
+
+
+
+\section[Problems]{Problems To Deal With}
 \begin{frame}
+General Issues:
 \begin{itemize}
-	\item Highly Non-linear \cite{SONG2005208,1035149}
+	\item Must manipulate end effector (or end joint) positions to execute a desired command \cite{piltan}
+	\item Must minimize or reject disturbances \cite{piltan,6954103}
+	\item Conventional controllers need exact dynamical models \cite{piltan}
+	\item Extremely nonlinear \cite{SONG2005208,1035149,piltan}
 \end{itemize}
+PID Controllers\cite{SONG2005208}
+\begin{itemize}
+	\item Must decouple each joint
+	\item Good for slow motion but degradation at faster speeds
+\end{itemize}
+Torque Controllers:
+\begin{itemize}
+	\item Excellent control comes at the cost of flux \cite{6954103}
+	\item Powerful nonlinear controller that is widely used in robotic manipulators
+\end{itemize}
+\end{frame}
+
+\section[Techniques]{2011 To Present}
+\begin{frame}{Techniques}{Super-Twisting Sliding Mode\cite{6954103}}
+%\begin{tabular}{lc}
+\begin{columns}
+    \begin{column}{0.47\textwidth}
+        \begin{itemize}
+	\item Fast switching of control inputs
+	\item Produces a stable response
+	\item The closed loop response is stable if external influences are bounded and gains set to large values
+	\item Works well with PWM and inverter switching
+	\item STSM control is a second order scheme
+	\item Asymptotic convergence
+        \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+        \includegraphics[scale=.25]{./images/direct_torque_flux_controller.png}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Techniques}{Super-Twisting Sliding Mode\cite{6954103}}
+%\begin{tabular}{lc}
+\begin{columns}
+    \begin{column}{0.47\textwidth}
+        \begin{itemize}
+        		\item The nonlinearity of the device can be controlled by changing the exponent $r$ such that $0 \leq r \leq $
+			\item Step 1: with $r=0$, select $K_P$ for the desired response time
+			\begin{itemize}
+				\item the flux rising time has a strong impact on startup peak current
+			\end{itemize}
+			\item Step 2: with $r=1$, select $K_I$ for the desired overshoot and settling time.  
+				\begin{itemize}
+					\item Try to not have a visible overshoot and smooth settling
+				\end{itemize}
+			\item increase $r$ until the torque and flux ripples vanish
+        \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+        \includegraphics[scale=.25]{./images/stsm_dtc_controller.png}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Techniques}{PD Plus Gravity\cite{piltan}}
+%\begin{tabular}{lc}
+\begin{columns}
+    \begin{column}{0.47\textwidth}
+        \begin{itemize}
+			\item Fuzzy logic parameters can compensate for dynamic parameters
+			\item Much simpler to implement than regular torque control problems
+			\item Based on Brunousky canonical form
+        \end{itemize}
+        \begin{align*}
+        	\dot{x} &= Ax + Bu \\
+        	\dot{x} &= \begin{bmatrix}
+        	0 & I \\ 0 & 0
+        	\end{bmatrix}x + \begin{bmatrix}
+        	0 \\ I
+        	\end{bmatrix}N \\
+        	N &= B(q)[\dot{q}\dot{q}] + C(q)[\dot{q}]^2 + G(q)
+        \end{align*}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+        \includegraphics[scale=.2]{./images/pd_ctc_application.png}
+    \end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Techniques}{PD Plus Gravity\cite{piltan}}
+%\begin{tabular}{lc}
+\begin{columns}
+    \begin{column}{0.47\textwidth}
+        For the PD Feedback for $N(t)$:
+        \begin{equation*}
+        \tau = M(q)(\ddot{q}_d + K_D\dot{e} + K_Pe) + N(q,\dot{q})
+        \end{equation*}
+        When gravity is added into the feedback system:
+        \begin{equation*}
+        \tau = M(q)(\ddot{q}_d + K_D\dot{e} + K_Pe) + G(q)
+        \end{equation*}
+        The above has been found to be stable in Lyapunov sense
+    \end{column}
+    \begin{column}{0.5\textwidth}
+        \includegraphics[scale=.2]{./images/pd_ctc_application.png}
+    \end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Techniques}{PD Plus Gravity\cite{piltan}}
+%\begin{tabular}{lc}
+\begin{columns}
+    \begin{column}{0.47\textwidth}
+asdf
+    \end{column}
+    \begin{column}{0.5\textwidth}
+        \includegraphics[scale=.2]{./images/quad_robot.png}
+    \end{column}
+\end{columns}
 \end{frame}
 
 
 
-\section[Previous]{Previous Studies}
-\begin{frame}{Previous Studies}{Previous}
-\begin{itemize}
-	\item PID Controllers \cite{SONG2005208}
-		\begin{itemize}
-			\item Must decouple each joint
-			\item Good for slow motion, degradation at faster speeds
-		\end{itemize}
-	\item Computed Torque Control \cite{SONG2005208}
-		\begin{itemize}
-			\item Easy to understand - similar to other linearized control methods 
-			\item Must know exact specifications - impractical in real world
-		\end{itemize}
-\end{itemize}
+\begin{frame}{Techniques}{PD Plus Gravity\cite{piltan}}
+%\begin{tabular}{lc}
+\begin{columns}
+    \begin{column}{0.47\textwidth}
+asdf
+    \end{column}
+    \begin{column}{0.5\textwidth}
+        \includegraphics[scale=.2]{./images/dynamics.png}
+    \end{column}
+\end{columns}
 \end{frame}
 
-\section[Current]{Current Studies (2011-2016)}
+\section[Conclusion]{Takeaway Points}
 
-\begin{frame}{Current Studies (2011-2016)}{Constraints}
-\begin{itemize}
-	\item Fuzzy Controllers \cite{SONG2005208}
-\end{itemize}
-
-\end{frame}
-
-
-
-
-\section[Conclusion]{Conclusion}
-
-\begin{frame}{Conclusions}{What did we learn?}
+\begin{frame}{Takeaway}{What did we learn?}
 In conclusion, several items were learned:
 \begin{itemize}
-	\item eh
-	\item huh
+	\item Robotic manipulators and joints are highly nonlinear
+	\item Torque control has several different ways to solve
+	\item Stability criteria can be met
+	\item Other methods exist such as phase angle \cite{7525846}
+	\item Latex Beamer is just not fun
 \end{itemize}
 \end{frame}
 
 \begin{frame}[allowframebreaks]
         \frametitle{References}
+       % \bibliographystyle{plainnat}
         \bibliographystyle{IEEETran}
         \bibliography{LitReviewBib.bib}
 \end{frame}
