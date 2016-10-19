@@ -12,7 +12,7 @@
 \usepackage{multimedia}
 \usepackage[english]{babel}
 %\usepackage[pdftex]{graphicx}
-\usepackage{algorithm}
+%\usepackage{algorithm}
 %\usepackage[noend]{algorithmic}
 %\usepackage[flalign]{amsmath}
 %\usepackage{amsmath}
@@ -36,7 +36,7 @@
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{tabularx}
-\usepackage{siunitx}
+%\usepackage{siunitx}
 \usepackage{caption}
 
 
@@ -92,21 +92,21 @@
 %\lstinputlisting[style=Matlab-editor]{FileLocation.m}
 %
 
-\usepackage{algorithm}
-\usepackage[noend]{algorithmic}
-\renewcommand{\algorithmicrequire}{\textbf{Input:}}
-\renewcommand{\algorithmiccomment}[1]{$\rhd$ #1}
-\renewcommand{\algorithmicensure}{\textbf{Output:}}
-\newcommand{\ie}{{\it i.e.},\xspace}
-\newcommand{\eg}{{\it e.g.},\xspace}
-\newcommand{\cf}{{\it c.f.},\xspace}
-\newcommand{\el}{{\it et al.},\xspace}
-\newcommand{\etc}{\text{etc.}}
-\DeclareFontFamily{OT1}{pzc}{}
-\DeclareFontShape{OT1}{pzc}{m}{it}%
-              {<-> s * [1.200] pzcmi7t}{}
-\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}%
-                                 {m}{it}
+%\usepackage{algorithm}
+%%\usepackage[noend]{algorithmic}
+%\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+%\renewcommand{\algorithmiccomment}[1]{$\rhd$ #1}
+%\renewcommand{\algorithmicensure}{\textbf{Output:}}
+%\newcommand{\ie}{{\it i.e.},\xspace}
+%\newcommand{\eg}{{\it e.g.},\xspace}
+%\newcommand{\cf}{{\it c.f.},\xspace}
+%\newcommand{\el}{{\it et al.},\xspace}
+%\newcommand{\etc}{\text{etc.}}
+%\DeclareFontFamily{OT1}{pzc}{}
+%\DeclareFontShape{OT1}{pzc}{m}{it}%
+%              {<-> s * [1.200] pzcmi7t}{}
+%\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}%
+%                                 {m}{it}
 
 % FOR CONDITIONS AFTER EQUATION
 \newenvironment{conditions*}
@@ -403,18 +403,18 @@ Torque Controllers:
 %\begin{tabular}{lc}
 \begin{columns}
     \begin{column}{0.47\textwidth}
-        For the PD Feedback for $N(t)$:
+        For the PD Feedback for $N(t)$: \begin{footnotesize}
         \begin{equation*}
         \tau = M(q)(\ddot{q}_d + K_D\dot{e} + K_Pe) + N(q,\dot{q})
-        \end{equation*}
+        \end{equation*}\end{footnotesize}
         When gravity is added into the feedback system:
-        \begin{equation*}
+        \begin{footnotesize}\begin{equation*}
         \tau = M(q)(\ddot{q}_d + K_D\dot{e} + K_Pe) + G(q)
-        \end{equation*}
+        \end{equation*}\end{footnotesize}
         The above has been found to be stable in Lyapunov sense
-    \end{column}
+    \end{column} 
     \begin{column}{0.5\textwidth}
-        \includegraphics[scale=.2]{./images/pd_ctc_application.png}
+        \includegraphics[scale=.2]{./images/fuzzy_pd_plus_gravity.png}
     \end{column}
 \end{columns}
 \end{frame}
@@ -423,7 +423,7 @@ Torque Controllers:
 \begin{frame}{Techniques}{Dynamic Torque Control\cite{6224628}}
 %\begin{tabular}{lc}
 \begin{columns}
-    \begin{column}{0.47\textwidth}
+    \begin{column}{0.47\textwidth}\begin{small}
 		\begin{itemize}
 			\item Robots are generally modelled as rigid body systems
 			\item Use torques as inputs
@@ -432,7 +432,7 @@ Torque Controllers:
 			\item Torque comes from inverse dynamics to change the set-point
 			\item Both loops run a PID
 			\item Feedback entirely based on the error
-		\end{itemize}
+		\end{itemize}\end{small}
     \end{column}
     \begin{column}{0.5\textwidth}
         \includegraphics[scale=.2]{./images/quad_robot.png}
