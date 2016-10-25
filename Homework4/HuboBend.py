@@ -22,7 +22,7 @@ class makeHuboBend(object):
 
     def __init__(self):
 
-        low = .5
+        low = .3
         high = .78285
         increment = 15
         lowerLeg = .30038
