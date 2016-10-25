@@ -17,6 +17,8 @@ class ik2DOF(object):
 
     def __init__( self , x , y , l1 , l2):
 
+        # print x , y , l1 , l2
+
         theta2 = np.arccos((x**2 + y**2 - l1**2 - l2**2) / (2*l1 * l2))
 
         a = y * (l1 + l2 * np.cos(theta2)) - x * (l2*np.sin(theta2))
