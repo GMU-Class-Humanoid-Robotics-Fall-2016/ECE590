@@ -161,19 +161,19 @@ while True:
         #
         # print redInds
 
+        hsvImg = cv2.cvtColor(vid2,cv2.COLOR_BGR2HSV_FULL)
+        print np.max(hsvImg[:,:,0])
 
 
 
 
 
 
-
-
-        cv2.imshow("Grey_Image", greyImage)
-        cv2.imshow("Black_White_Image", bwImage)
-        cv2.imshow("Eroded_Image",erodedImage)
-        cv2.imshow("Dilated_Image",dilatedImage)
-        cv2.imshow("Opened_Image",openedImage)
+        # cv2.imshow("Grey_Image", greyImage)
+        # cv2.imshow("Black_White_Image", bwImage)
+        # cv2.imshow("Eroded_Image",erodedImage)
+        # cv2.imshow("Dilated_Image",dilatedImage)
+        # cv2.imshow("Opened_Image",openedImage)
         # cv2.imshow("Red_Color_Channel",redChannel)
         # cv2.imshow("Green_Color_Channel",greenChannel)
         # cv2.imshow("Blue_Color_Channel",blueChannel)
